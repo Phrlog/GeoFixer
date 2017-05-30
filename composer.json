@@ -1,0 +1,15 @@
+{
+    "name": "phrlog/GeoFixer",
+    "require": {
+        "cakephp/database": "*",
+        "katzgrau/klogger": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeoFixer\\": "app/"
+        }
+    }
+}
