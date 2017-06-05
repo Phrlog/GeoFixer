@@ -2,7 +2,19 @@
 <phpunit colors="true">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>tests/</directory>
+            <directory>tests/</directory>       
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>app/models/</directory>
+            <directory>app/traits/</directory>
+            <directory>app/GeoFixerFacade.php</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="tests/logs/clover.xml"/>
+    </logging>
 </phpunit>
