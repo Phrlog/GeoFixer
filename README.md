@@ -1,4 +1,5 @@
 # Geofixer
+[![Build Status](https://travis-ci.org/Phrlog/GeoFixer.svg?branch=master)](https://travis-ci.org/Phrlog/GeoFixer)
 
 ## Настройка
 Для использования `FIAS` Измените конфиг `app/config/database.php` под свою БД
