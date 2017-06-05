@@ -163,7 +163,7 @@ class GeoFixer
      *
      * @param bool $strict
      */
-    public function isStrict(bool $strict = false)
+    public function isStrict($strict = false)
     {
         $this->strict = $strict;
     }
