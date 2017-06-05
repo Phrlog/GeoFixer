@@ -36,7 +36,7 @@ class DatabaseConnection
     public static function makeConnection($config = null)
     {
         if (!$config) {
-            $config = include '../config/database.php';
+            $config = include dirname(dirname(__FILE__)) . '/config/database.php';
         }
 
         $driver = new Mysql($config);
