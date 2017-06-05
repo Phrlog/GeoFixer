@@ -3,6 +3,7 @@
 namespace GeoFixer\tests;
 
 use GeoFixer\GeoFixerFacade;
+use GeoFixer\models\DatabaseConnection;
 use GeoFixer\models\queries\HousesDatabaseQuery;
 use GeoFixer\models\queries\RegionsDatabaseQuery;
 use GeoFixer\models\queries\SettlementsDatabaseQuery;
@@ -23,6 +24,13 @@ class ModelQueriesTest extends \PHPUnit_Framework_TestCase
         parent::__construct($name, $data, $dataName);
         $this->facade = new GeoFixerFacade($fias = true);
 
+    }
+
+    public function testConnection()
+    {
+        $connection = new DatabaseConnection();
+
+        $this->assertNotEmpty($connection->connection());
     }
 
     public function testGetRegions()

@@ -46,4 +46,13 @@ class FindSimilarWordTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Москва', $this->facade->findSimilarWord('город Москва', $cities));
         $this->assertEquals('Москва', $this->facade->findSimilarWord('г. Москва', $cities));
     }
+
+    public function testFindSimilarError()
+    {
+        $cities = [
+            'Москва', 'Тольятти', 'Пермь', 'Екатеринбург', 'Московия'
+        ];
+
+        $this->assertFalse($this->facade->findSimilarWord('Нью-Йорк', $cities, $strict_search = true));
+    }
 }
