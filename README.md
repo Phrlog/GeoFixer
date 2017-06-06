@@ -11,7 +11,7 @@
 $geo = new \GeoFixer\GeoFixerFacade();
 ```
 
-Если вы хотите использовать БД ФИАС, то нужно добавить параметр:
+Если вы хотите использовать БД ФИАС рекомендую использовать [этот](https://github.com/Phrlog/yii2-fias) репозиторий для установки бд. После, нужно добавить параметр:
 
 ```PHP
 $geo = new \GeoFixer\GeoFixerFacade($fias = true);
