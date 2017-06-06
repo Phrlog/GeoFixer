@@ -654,7 +654,7 @@ INSERT INTO `fias_address_object` (`id`, `address_id`, `parent_id`, `address_lev
 
 INSERT INTO `fias_house` (`id`, `house_id`, `address_id`, `number`, `building`, `structure`, `postal_code`, `oktmo`, `okato`, `ifnsul`, `ifnsfl`) VALUES ('06ba46da-ca07-498c-8cff-f27749b33fcf', '06ba46da-ca07-498c-8cff-f27749b33fcf', '3e0d1213-1212-4f87-bdd3-5f8ef6f6473e', '230/5', '', '', '675000', '10701000', '10401000000', '2801', '2801');
 
-INSERT INTO `fias_house` (`id`, `house_id`, `address_id`, `number`, `building`, `structure`, `postal_code`, `oktmo`, `okato`, `ifnsul`, `ifnsfl`) VALUES ('05f9a72c-da04-41a1-908c-140e7ed3b29f', '05f9a72c-da04-41a1-908c-140e7ed3b29f', '3e0d1213-1212-4f87-bdd3-5f8ef6f6473e', '261', '', '', '675000', '10701000', '10401000000', '2801', '2801')
+INSERT INTO `fias_house` (`id`, `house_id`, `address_id`, `number`, `building`, `structure`, `postal_code`, `oktmo`, `okato`, `ifnsul`, `ifnsfl`) VALUES ('05f9a72c-da04-41a1-908c-140e7ed3b29f', '05f9a72c-da04-41a1-908c-140e7ed3b29f', '3e0d1213-1212-4f87-bdd3-5f8ef6f6473e', '261', '', '', '675000', '10701000', '10401000000', '2801', '2801');
 
 SET FOREIGN_KEY_CHECKS = 1;
 --
