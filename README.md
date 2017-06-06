@@ -1,6 +1,6 @@
 # Geofixer
 [![Build Status](https://travis-ci.org/Phrlog/GeoFixer.svg?branch=master)](https://travis-ci.org/Phrlog/GeoFixer)
-[![Coverage Status](https://coveralls.io/repos/github/Phrlog/GeoFixer/badge.svg?branch=master)](https://coveralls.io/github/Phrlog/GeoFixer?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Phrlog/GeoFixer/badge.svg)](https://coveralls.io/github/Phrlog/GeoFixer)
 
 ## Настройка
 Для использования `FIAS` Измените конфиг `app/config/database.php` под свою БД
