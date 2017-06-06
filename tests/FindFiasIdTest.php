@@ -25,6 +25,13 @@ class FindFiasIdTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(47, $this->facade->findFiasRegion($region));
     }
 
+    public function testFindStrictFiasRegion()
+    {
+        $region = 'Ленинрадская область';
+
+        $this->assertEquals(47, $this->facade->findFiasRegion($region, 2, true));
+    }
+
     public function testRegionError()
     {
         $region = 'Банановая респубика';
@@ -38,6 +45,14 @@ class FindFiasIdTest extends \PHPUnit_Framework_TestCase
         $region_code = 28;
 
         $this->assertEquals('8f41253d-6e3b-48a9-842a-25ba894bd093', $this->facade->findFiasSettlement($city, $region_code));
+    }
+
+    public function testFindStrictFiasSettlement()
+    {
+        $city = 'Блоговщнск'; // Благовещенск
+        $region_code = 28;
+
+        $this->assertEquals('8f41253d-6e3b-48a9-842a-25ba894bd093', $this->facade->findFiasSettlement($city, $region_code, 2));
     }
 
     public function testSettlementError()
@@ -62,6 +77,14 @@ class FindFiasIdTest extends \PHPUnit_Framework_TestCase
         $street = 'Амурская';
 
         $this->assertEquals('3e0d1213-1212-4f87-bdd3-5f8ef6f6473e', $this->facade->findFiasStreet($street, $city_id));
+    }
+
+    public function testFindStrictStreet()
+    {
+        $city_id = '8f41253d-6e3b-48a9-842a-25ba894bd093';
+        $street = 'Амурская';
+
+        $this->assertEquals('3e0d1213-1212-4f87-bdd3-5f8ef6f6473e', $this->facade->findFiasStreet($street, $city_id, 2));
     }
 
     public function testStreetError()
