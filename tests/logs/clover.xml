@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1496756514">
-  <project timestamp="1496756514">
+<coverage generated="1496837079">
+  <project timestamp="1496837079">
     <package name="GeoFixer">
       <file name="/var/www/geo_git/app/GeoFixerFacade.php">
         <class name="GeoFixerFacade" namespace="GeoFixer" fullPackage="GeoFixer" package="GeoFixer">
-          <metrics methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="38" elements="52" coveredelements="43"/>
+          <metrics methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="44" elements="52" coveredelements="50"/>
         </class>
-        <line num="33" type="method" name="__construct" crap="12" count="0"/>
-        <line num="35" type="stmt" count="0"/>
-        <line num="37" type="stmt" count="0"/>
-        <line num="38" type="stmt" count="0"/>
-        <line num="41" type="stmt" count="0"/>
+        <line num="33" type="method" name="__construct" crap="3.14" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="41" type="stmt" count="1"/>
         <line num="42" type="stmt" count="0"/>
         <line num="43" type="stmt" count="0"/>
-        <line num="47" type="stmt" count="0"/>
-        <line num="48" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="2"/>
+        <line num="48" type="stmt" count="2"/>
         <line num="60" type="method" name="findSimilarWord" crap="2" count="3"/>
         <line num="62" type="stmt" count="3"/>
         <line num="64" type="stmt" count="3"/>
@@ -58,7 +58,7 @@
         <line num="171" type="stmt" count="1"/>
         <line num="173" type="stmt" count="1"/>
         <line num="177" type="stmt" count="4"/>
-        <metrics loc="178" ncloc="110" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="38" elements="52" coveredelements="43"/>
+        <metrics loc="178" ncloc="110" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="44" elements="52" coveredelements="49"/>
       </file>
     </package>
     <package name="GeoFixer\models">
@@ -69,15 +69,15 @@
         <line num="24" type="method" name="__construct" crap="1" count="1"/>
         <line num="26" type="stmt" count="1"/>
         <line num="27" type="stmt" count="1"/>
-        <line num="36" type="method" name="makeConnection" crap="3.02" count="1"/>
-        <line num="38" type="stmt" count="1"/>
+        <line num="36" type="method" name="makeConnection" crap="3.02" count="2"/>
+        <line num="38" type="stmt" count="2"/>
         <line num="39" type="stmt" count="1"/>
-        <line num="42" type="stmt" count="1"/>
-        <line num="43" type="stmt" count="1"/>
-        <line num="44" type="stmt" count="1"/>
-        <line num="47" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="2"/>
+        <line num="43" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="47" type="stmt" count="2"/>
         <line num="48" type="stmt" count="0"/>
-        <line num="51" type="stmt" count="1"/>
+        <line num="51" type="stmt" count="2"/>
         <line num="59" type="method" name="connection" crap="2" count="21"/>
         <line num="61" type="stmt" count="21"/>
         <metrics loc="63" ncloc="40" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="14" coveredelements="12"/>
@@ -301,10 +301,10 @@
         <line num="73" type="stmt" count="13"/>
         <line num="82" type="method" name="removeSpecifications" crap="1" count="13"/>
         <line num="84" type="stmt" count="13"/>
-        <line num="87" type="stmt" count="13"/>
-        <metrics loc="88" ncloc="52" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
+        <line num="86" type="stmt" count="13"/>
+        <metrics loc="87" ncloc="51" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
       </file>
     </package>
-    <metrics files="10" loc="917" ncloc="580" classes="10" methods="43" coveredmethods="41" conditionals="0" coveredconditionals="0" statements="193" coveredstatements="184" elements="236" coveredelements="225"/>
+    <metrics files="10" loc="916" ncloc="579" classes="10" methods="43" coveredmethods="41" conditionals="0" coveredconditionals="0" statements="193" coveredstatements="190" elements="236" coveredelements="231"/>
   </project>
 </coverage>
