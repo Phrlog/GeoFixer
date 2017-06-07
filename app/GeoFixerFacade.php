@@ -29,13 +29,16 @@ class GeoFixerFacade
      *
      * GeoFixerFacade constructor.
      * @param bool $fias
+     * @param array $config
      */
-    public function __construct($fias = false)
+    public function __construct($fias = false, $config = null)
     {
         $this->logger = new KLogger\Logger(dirname(dirname(__FILE__)) . '/logs');
 
         if ($fias == true) {
-            $config = include 'config/database.php';
+            if ($config == null) {
+                $config = include 'config/database.php';
+            }
 
             try {
                 DatabaseConnection::makeConnection($config);
