@@ -22,6 +22,19 @@ class ModelQueriesTest extends \PHPUnit_Framework_TestCase
      */
     protected $facade;
 
+    public function testFiasFacadeErrorCreation()
+    {
+        $this->setExpectedException(null, 'Database connection error');
+
+        $config = [
+            'host' => 'localhost',
+            'database'  => 'fias',
+            'username'  => 'root',
+            'password'  => 'wrong_password'
+        ];
+        $this->facade = new GeoFixerFacade($fias = true, $config);
+    }
+
     public function testFiasFacadeCreation()
     {
         $this->facade = new GeoFixerFacade($fias = true);
