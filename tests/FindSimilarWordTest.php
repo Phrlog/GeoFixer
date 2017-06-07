@@ -12,6 +12,9 @@ use GeoFixer\GeoFixerFacade;
  */
 class FindSimilarWordTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var GeoFixerFacade
+     */
     protected $facade;
 
     public function __construct($name = NULL, array $data = array(), $dataName = '')
@@ -19,6 +22,13 @@ class FindSimilarWordTest extends \PHPUnit_Framework_TestCase
         parent::__construct($name, $data, $dataName);
 
         $this->facade = new GeoFixerFacade();
+    }
+
+    public function testFacadeCreation()
+    {
+        $this->facade = new GeoFixerFacade();
+
+        $this->assertNotEmpty($this->facade);
     }
 
     public function testFindSimilarRegion()

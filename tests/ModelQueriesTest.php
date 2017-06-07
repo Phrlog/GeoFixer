@@ -17,13 +17,16 @@ use GeoFixer\models\queries\StreetsDatabaseQuery;
  */
 class ModelQueriesTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var GeoFixerFacade
+     */
     protected $facade;
 
-    public function __construct($name = NULL, array $data = array(), $dataName = '')
+    public function testFiasFacadeCreation()
     {
-        parent::__construct($name, $data, $dataName);
         $this->facade = new GeoFixerFacade($fias = true);
 
+        $this->assertNotEmpty($this->facade);
     }
 
     public function testConnection()
