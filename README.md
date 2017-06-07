@@ -1,6 +1,8 @@
 # Geofixer
+[![Latest Stable Version](https://poser.pugx.org/phrlog/geofixer/v/stable)](https://packagist.org/packages/phrlog/geofixer)
 [![Build Status](https://travis-ci.org/Phrlog/GeoFixer.svg?branch=master)](https://travis-ci.org/Phrlog/GeoFixer)
 [![Coverage Status](https://coveralls.io/repos/github/Phrlog/GeoFixer/badge.svg)](https://coveralls.io/github/Phrlog/GeoFixer)
+[![License](https://poser.pugx.org/phrlog/geofixer/license)](https://packagist.org/packages/phrlog/geofixer)
 
 ## Настройка
 Для использования `FIAS` Измените конфиг `app/config/database.php` под свою БД
