@@ -11,19 +11,22 @@
 
 ## Инициализация приложения
 `composer install`
-```PHP
+```php
+<?php
 $geo = new \GeoFixer\GeoFixerFacade();
 ```
 
 Если вы хотите использовать БД ФИАС рекомендую использовать [этот](https://github.com/Phrlog/yii2-fias) репозиторий для установки бд. После, нужно добавить параметр:
 
-```PHP
+```php
+<?php
 $geo = new \GeoFixer\GeoFixerFacade($fias = true);
 ```
 
 ## Поиск по имеющимся массивам
 
-```PHP
+```php
+<?php
 /* массив, где нужно найти регион/город */
 $find_in = ['Москва', 'Екатеринбург', 'Томск'];
 
@@ -40,7 +43,8 @@ $result = $geo->findSimilarWord($find_to, $find, $strict_search = true);
 ```
 
 ## Поиск кода региона по базе ФИАС
-```PHP
+```php
+<?php
 $region = 'Ленинрадская область';
 
 /* вернется id региона или false */
@@ -48,14 +52,24 @@ $code = $geo->findFiasRegion($region);
 ```
 
 Возможны дополнительные параметры:
-```PHP
+```php
+<?php
 /* кол-во первых букв в регионе, которые должны совпадать */
 $first_letters = 2;
 $code = $geo->findFiasRegion($region, $first_letters,  $strict_search = true);
 ```
+## Поиск кода региона по базе КЛАДР
+```php
+<?php
+$region = 'Ленинрадская область';
+
+/* вернется id региона или false */
+$code = $geo->findKladrRegion($region);
+```
 
 ## Поиск ID города по коду региона ФИАС
-```PHP
+```php
+<?php
 $first_letters = false;
 $strict_search = false;
 $full_settlements = true; // поиск не только по городам, но и по поселениям
@@ -65,9 +79,22 @@ $region_code = 28;
 
 $id = $geo->findFiasSettlement($city, $region_code, $first_letters, $strict_search, $full_settlements);
 ```
+## Поиск кода города по коду региона КЛАДР
+```php
+<?php
+$first_letters = false;
+$strict_search = false;
+$full_settlements = true; // поиск не только по городам, но и по поселениям
+
+$city = 'Благовещенск';
+$region_code = 2800000000000;
+
+$id = $geo->findKladrSettlement($city, $region_code, $first_letters, $strict_search, $full_settlements);
+```
 
 ## Поиск ID улицы по ID города
-```PHP
+```php
+<?php
 $first_letters = false;
 $strict_search = false;
 
@@ -78,7 +105,8 @@ $id = $geo->findFiasStreet($street, $city_id, $first_letters, $strict_search);
 ```
 
 ## Поиск ID дома по ID улицы
-```PHP
+```php
+<?php
 $street_id = '3e0d1213-1212-4f87-bdd3-5f8ef6f6473e';
 $house = 261;
 $building = false; // если нужно, можно указать корпус
