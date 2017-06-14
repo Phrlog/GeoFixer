@@ -71,4 +71,28 @@ class FindKladrIdTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('2000000100000', $this->facade->findKladrSettlement($city, $this->facade->findKladrRegion($region)));
     }
 
+    public function testFindStreet()
+    {
+        $city_code = '2800000100000';
+        $street = 'Амурская';
+
+        $this->assertEquals('28000001000000200', $this->facade->findKladrStreet($street, $city_code));
+    }
+
+    public function testFindStrictStreet()
+    {
+        $city_code = '2800000100000';
+        $street = 'Амурская';
+
+        $this->assertEquals('28000001000000200', $this->facade->findKladrStreet($street, $city_code, 2));
+    }
+
+    public function testStreetError()
+    {
+        $city_code = '2800000100000';
+        $street = 'Несуществующая';
+
+        $this->assertFalse($this->facade->findKladrStreet($street, $city_code, false, $strict_search = true));
+    }
+
 }

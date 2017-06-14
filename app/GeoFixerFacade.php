@@ -208,6 +208,34 @@ class GeoFixerFacade
     }
 
     /**
+     * Поиск кода улицы по коду города в базе КЛАДР
+     * Логирование ошибок
+     *
+     * @param $street
+     * @param $city_code
+     * @param bool $first_letters
+     * @param bool $strict_search
+     *
+     * @return string|false
+     */
+    public function findKladrStreet($street, $city_code, $first_letters = false, $strict_search = false)
+    {
+        $this->geo->isStrict($strict_search);
+        $this->geo->isFirstLetters($first_letters);
+
+        $result =  $this->geo->findKladrStreets($street, $city_code);
+
+        if ($result == false) {
+            $this->logger->warning('Не найдена улица ' . $street . ' в городе с кодом ' . $city_code . ' базы КЛАДР');
+            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+        }
+
+        return $result;
+    }
+
+
+    /**
      * Поиск ID дома по ID улицы в базе ФИАС
      *
      * @param $house

@@ -103,6 +103,17 @@ $city_id = '8f41253d-6e3b-48a9-842a-25ba894bd093';
 
 $id = $geo->findFiasStreet($street, $city_id, $first_letters, $strict_search);
 ```
+## Поиск кода улицы по коду города
+```php
+<?php
+$first_letters = false;
+$strict_search = false;
+
+$street = 'Амурская';
+$city_code = '2800000100000';
+
+$id = $geo->findKladrStreet($street, $city_code, $first_letters, $strict_search);
+```
 
 ## Поиск ID дома по ID улицы
 ```php

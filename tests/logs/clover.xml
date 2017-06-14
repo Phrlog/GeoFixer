@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497369622">
-  <project timestamp="1497369622">
+<coverage generated="1497435722">
+  <project timestamp="1497435722">
     <package name="GeoFixer">
       <file name="/var/www/geo_git/app/GeoFixerFacade.php">
         <class name="GeoFixerFacade" namespace="GeoFixer" fullPackage="GeoFixer" package="GeoFixer">
-          <metrics methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="59" elements="69" coveredelements="67"/>
+          <metrics methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="67" elements="78" coveredelements="76"/>
         </class>
         <line num="34" type="method" name="__construct" crap="4.18" count="3"/>
         <line num="36" type="stmt" count="3"/>
@@ -68,14 +68,23 @@
         <line num="203" type="stmt" count="1"/>
         <line num="204" type="stmt" count="1"/>
         <line num="207" type="stmt" count="3"/>
-        <line num="219" type="method" name="findFiasHouse" crap="3" count="4"/>
-        <line num="221" type="stmt" count="4"/>
-        <line num="223" type="stmt" count="4"/>
-        <line num="224" type="stmt" count="2"/>
-        <line num="225" type="stmt" count="1"/>
-        <line num="227" type="stmt" count="1"/>
-        <line num="231" type="stmt" count="4"/>
-        <metrics loc="232" ncloc="142" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="61" coveredstatements="59" elements="69" coveredelements="66"/>
+        <line num="221" type="method" name="findKladrStreet" crap="2" count="3"/>
+        <line num="223" type="stmt" count="3"/>
+        <line num="224" type="stmt" count="3"/>
+        <line num="226" type="stmt" count="3"/>
+        <line num="228" type="stmt" count="3"/>
+        <line num="229" type="stmt" count="1"/>
+        <line num="230" type="stmt" count="1"/>
+        <line num="231" type="stmt" count="1"/>
+        <line num="234" type="stmt" count="3"/>
+        <line num="247" type="method" name="findFiasHouse" crap="3" count="4"/>
+        <line num="249" type="stmt" count="4"/>
+        <line num="251" type="stmt" count="4"/>
+        <line num="252" type="stmt" count="2"/>
+        <line num="253" type="stmt" count="1"/>
+        <line num="255" type="stmt" count="1"/>
+        <line num="259" type="stmt" count="4"/>
+        <metrics loc="260" ncloc="159" classes="1" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="67" elements="78" coveredelements="75"/>
       </file>
     </package>
     <package name="GeoFixer\models">
@@ -95,22 +104,22 @@
         <line num="47" type="stmt" count="3"/>
         <line num="48" type="stmt" count="0"/>
         <line num="51" type="stmt" count="3"/>
-        <line num="59" type="method" name="connection" crap="2" count="28"/>
-        <line num="61" type="stmt" count="28"/>
+        <line num="59" type="method" name="connection" crap="2" count="31"/>
+        <line num="61" type="stmt" count="31"/>
         <metrics loc="63" ncloc="40" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="14" coveredelements="12"/>
       </file>
       <file name="/var/www/geo_git/app/models/GeoFixer.php">
         <class name="GeoFixer" namespace="GeoFixer\models" fullPackage="GeoFixer" package="GeoFixer">
-          <metrics methods="10" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="90" coveredstatements="73" elements="100" coveredelements="82"/>
+          <metrics methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="92" elements="105" coveredelements="102"/>
         </class>
-        <line num="32" type="method" name="findSimilarWord" crap="4" count="20"/>
-        <line num="34" type="stmt" count="20"/>
-        <line num="35" type="stmt" count="5"/>
-        <line num="38" type="stmt" count="18"/>
-        <line num="40" type="stmt" count="18"/>
-        <line num="42" type="stmt" count="18"/>
-        <line num="43" type="stmt" count="8"/>
-        <line num="44" type="stmt" count="8"/>
+        <line num="32" type="method" name="findSimilarWord" crap="4" count="23"/>
+        <line num="34" type="stmt" count="23"/>
+        <line num="35" type="stmt" count="7"/>
+        <line num="38" type="stmt" count="19"/>
+        <line num="40" type="stmt" count="19"/>
+        <line num="42" type="stmt" count="19"/>
+        <line num="43" type="stmt" count="9"/>
+        <line num="44" type="stmt" count="9"/>
         <line num="47" type="stmt" count="10"/>
         <line num="49" type="stmt" count="10"/>
         <line num="57" type="method" name="findFiasRegion" crap="4" count="8"/>
@@ -169,65 +178,73 @@
         <line num="170" type="stmt" count="3"/>
         <line num="173" type="stmt" count="3"/>
         <line num="175" type="stmt" count="3"/>
-        <line num="184" type="method" name="findKladrStreets" crap="30" count="0"/>
-        <line num="186" type="stmt" count="0"/>
-        <line num="187" type="stmt" count="0"/>
-        <line num="189" type="stmt" count="0"/>
-        <line num="190" type="stmt" count="0"/>
-        <line num="193" type="stmt" count="0"/>
-        <line num="195" type="stmt" count="0"/>
-        <line num="196" type="stmt" count="0"/>
-        <line num="198" type="stmt" count="0"/>
-        <line num="199" type="stmt" count="0"/>
-        <line num="200" type="stmt" count="0"/>
-        <line num="203" type="stmt" count="0"/>
-        <line num="205" type="stmt" count="0"/>
-        <line num="206" type="stmt" count="0"/>
-        <line num="208" type="stmt" count="0"/>
-        <line num="209" type="stmt" count="0"/>
-        <line num="212" type="stmt" count="0"/>
-        <line num="221" type="method" name="findFiasHouses" crap="3" count="4"/>
-        <line num="223" type="stmt" count="4"/>
-        <line num="224" type="stmt" count="4"/>
-        <line num="226" type="stmt" count="4"/>
-        <line num="227" type="stmt" count="2"/>
+        <line num="184" type="method" name="findKladrStreets" crap="6.03" count="3"/>
+        <line num="186" type="stmt" count="3"/>
+        <line num="187" type="stmt" count="3"/>
+        <line num="188" type="stmt" count="3"/>
+        <line num="189" type="stmt" count="3"/>
+        <line num="190" type="stmt" count="3"/>
+        <line num="192" type="stmt" count="0"/>
+        <line num="194" type="stmt" count="3"/>
+        <line num="196" type="stmt" count="3"/>
+        <line num="197" type="stmt" count="1"/>
+        <line num="200" type="stmt" count="3"/>
+        <line num="202" type="stmt" count="3"/>
+        <line num="203" type="stmt" count="3"/>
+        <line num="205" type="stmt" count="3"/>
+        <line num="206" type="stmt" count="3"/>
+        <line num="207" type="stmt" count="3"/>
+        <line num="210" type="stmt" count="3"/>
+        <line num="212" type="stmt" count="3"/>
+        <line num="213" type="stmt" count="1"/>
+        <line num="215" type="stmt" count="2"/>
+        <line num="216" type="stmt" count="0"/>
+        <line num="219" type="stmt" count="2"/>
+        <line num="228" type="method" name="findFiasHouses" crap="3" count="4"/>
         <line num="230" type="stmt" count="4"/>
-        <line num="232" type="stmt" count="4"/>
-        <line num="240" type="method" name="isStrict" crap="1" count="20"/>
-        <line num="242" type="stmt" count="20"/>
-        <line num="243" type="stmt" count="20"/>
-        <line num="254" type="method" name="isFirstLetters" crap="2" count="17"/>
-        <line num="256" type="stmt" count="17"/>
-        <line num="257" type="stmt" count="5"/>
-        <line num="259" type="stmt" count="17"/>
-        <line num="266" type="method" name="isFullSettlements" crap="1" count="8"/>
-        <line num="268" type="stmt" count="8"/>
-        <line num="269" type="stmt" count="8"/>
-        <metrics loc="270" ncloc="206" classes="1" methods="10" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="90" coveredstatements="73" elements="100" coveredelements="81"/>
+        <line num="231" type="stmt" count="4"/>
+        <line num="233" type="stmt" count="4"/>
+        <line num="234" type="stmt" count="2"/>
+        <line num="237" type="stmt" count="4"/>
+        <line num="239" type="stmt" count="4"/>
+        <line num="247" type="method" name="isStrict" crap="1" count="23"/>
+        <line num="249" type="stmt" count="23"/>
+        <line num="250" type="stmt" count="23"/>
+        <line num="261" type="method" name="isFirstLetters" crap="2" count="20"/>
+        <line num="263" type="stmt" count="20"/>
+        <line num="264" type="stmt" count="6"/>
+        <line num="266" type="stmt" count="20"/>
+        <line num="273" type="method" name="isFullSettlements" crap="1" count="8"/>
+        <line num="275" type="stmt" count="8"/>
+        <line num="276" type="stmt" count="8"/>
+        <metrics loc="277" ncloc="213" classes="1" methods="10" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="92" elements="105" coveredelements="100"/>
       </file>
     </package>
     <package name="GeoFixer\models\queries">
       <file name="/var/www/geo_git/app/models/queries/AbstractDatabaseQuery.php">
         <class name="AbstractDatabaseQuery" namespace="GeoFixer\models\queries" fullPackage="GeoFixer" package="GeoFixer">
-          <metrics methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="16" coveredelements="16"/>
+          <metrics methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="19" coveredelements="19"/>
         </class>
-        <line num="32" type="method" name="__construct" crap="1" count="27"/>
-        <line num="34" type="stmt" count="27"/>
-        <line num="35" type="stmt" count="27"/>
-        <line num="44" type="method" name="firstLetters" crap="1" count="5"/>
-        <line num="46" type="stmt" count="5"/>
-        <line num="48" type="stmt" count="5"/>
+        <line num="32" type="method" name="__construct" crap="1" count="30"/>
+        <line num="34" type="stmt" count="30"/>
+        <line num="35" type="stmt" count="30"/>
+        <line num="44" type="method" name="firstLetters" crap="1" count="6"/>
+        <line num="46" type="stmt" count="6"/>
+        <line num="48" type="stmt" count="6"/>
         <line num="58" type="method" name="regionCode" crap="1" count="10"/>
         <line num="60" type="stmt" count="10"/>
         <line num="62" type="stmt" count="10"/>
-        <line num="72" type="method" name="parentId" crap="1" count="4"/>
-        <line num="74" type="stmt" count="4"/>
-        <line num="76" type="stmt" count="4"/>
-        <line num="84" type="method" name="findAll" crap="1" count="22"/>
-        <line num="86" type="stmt" count="22"/>
-        <line num="94" type="method" name="findOne" crap="1" count="5"/>
-        <line num="96" type="stmt" count="5"/>
-        <metrics loc="97" ncloc="50" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="16" coveredelements="16"/>
+        <line num="72" type="method" name="kladrCode" crap="1" count="3"/>
+        <line num="74" type="stmt" count="3"/>
+        <line num="76" type="stmt" count="3"/>
+        <line num="86" type="method" name="parentId" crap="1" count="7"/>
+        <line num="88" type="stmt" count="7"/>
+        <line num="90" type="stmt" count="7"/>
+        <line num="98" type="method" name="findAll" crap="1" count="25"/>
+        <line num="100" type="stmt" count="25"/>
+        <line num="108" type="method" name="findOne" crap="1" count="8"/>
+        <line num="110" type="stmt" count="8"/>
+        <metrics loc="111" ncloc="57" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="19" coveredelements="19"/>
       </file>
       <file name="/var/www/geo_git/app/models/queries/HousesDatabaseQuery.php">
         <class name="HousesDatabaseQuery" namespace="GeoFixer\models\queries" fullPackage="GeoFixer" package="GeoFixer">
@@ -266,32 +283,32 @@
         <class name="SettlementsDatabaseQuery" namespace="GeoFixer\models\queries" fullPackage="GeoFixer" package="GeoFixer">
           <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="11" coveredelements="11"/>
         </class>
-        <line num="15" type="method" name="__construct" crap="1" count="10"/>
-        <line num="17" type="stmt" count="10"/>
-        <line num="18" type="stmt" count="10"/>
-        <line num="25" type="method" name="getSettlements" crap="1" count="10"/>
-        <line num="27" type="stmt" count="10"/>
-        <line num="29" type="stmt" count="10"/>
-        <line num="39" type="method" name="addressLevel" crap="2" count="10"/>
-        <line num="41" type="stmt" count="10"/>
+        <line num="15" type="method" name="__construct" crap="1" count="13"/>
+        <line num="17" type="stmt" count="13"/>
+        <line num="18" type="stmt" count="13"/>
+        <line num="25" type="method" name="getSettlements" crap="1" count="13"/>
+        <line num="27" type="stmt" count="13"/>
+        <line num="29" type="stmt" count="13"/>
+        <line num="39" type="method" name="addressLevel" crap="2" count="13"/>
+        <line num="41" type="stmt" count="13"/>
         <line num="42" type="stmt" count="9"/>
-        <line num="44" type="stmt" count="1"/>
-        <line num="47" type="stmt" count="10"/>
+        <line num="44" type="stmt" count="4"/>
+        <line num="47" type="stmt" count="13"/>
         <metrics loc="48" ncloc="28" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="11" coveredelements="11"/>
       </file>
       <file name="/var/www/geo_git/app/models/queries/StreetsDatabaseQuery.php">
         <class name="StreetsDatabaseQuery" namespace="GeoFixer\models\queries" fullPackage="GeoFixer" package="GeoFixer">
           <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
         </class>
-        <line num="15" type="method" name="__construct" crap="1" count="4"/>
-        <line num="17" type="stmt" count="4"/>
-        <line num="18" type="stmt" count="4"/>
-        <line num="25" type="method" name="getStreets" crap="1" count="4"/>
-        <line num="27" type="stmt" count="4"/>
-        <line num="29" type="stmt" count="4"/>
-        <line num="37" type="method" name="addressLevel" crap="1" count="4"/>
-        <line num="39" type="stmt" count="4"/>
-        <line num="41" type="stmt" count="4"/>
+        <line num="15" type="method" name="__construct" crap="1" count="7"/>
+        <line num="17" type="stmt" count="7"/>
+        <line num="18" type="stmt" count="7"/>
+        <line num="25" type="method" name="getStreets" crap="1" count="7"/>
+        <line num="27" type="stmt" count="7"/>
+        <line num="29" type="stmt" count="7"/>
+        <line num="37" type="method" name="addressLevel" crap="1" count="7"/>
+        <line num="39" type="stmt" count="7"/>
+        <line num="41" type="stmt" count="7"/>
         <metrics loc="43" ncloc="25" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
       </file>
     </package>
@@ -300,62 +317,62 @@
         <class name="LevenshteinAlgorithmTrait" namespace="GeoFixer\traits" fullPackage="GeoFixer" package="GeoFixer">
           <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="32" coveredelements="32"/>
         </class>
-        <line num="25" type="method" name="findBestMatch" crap="8" count="8"/>
-        <line num="27" type="stmt" count="8"/>
-        <line num="28" type="stmt" count="8"/>
-        <line num="31" type="stmt" count="8"/>
+        <line num="25" type="method" name="findBestMatch" crap="8" count="9"/>
+        <line num="27" type="stmt" count="9"/>
+        <line num="28" type="stmt" count="9"/>
+        <line num="31" type="stmt" count="9"/>
         <line num="32" type="stmt" count="2"/>
-        <line num="33" type="stmt" count="8"/>
-        <line num="38" type="stmt" count="8"/>
-        <line num="39" type="stmt" count="8"/>
-        <line num="42" type="stmt" count="8"/>
+        <line num="33" type="stmt" count="9"/>
+        <line num="38" type="stmt" count="9"/>
+        <line num="39" type="stmt" count="9"/>
+        <line num="42" type="stmt" count="9"/>
         <line num="44" type="stmt" count="2"/>
         <line num="45" type="stmt" count="2"/>
         <line num="46" type="stmt" count="2"/>
-        <line num="51" type="stmt" count="8"/>
-        <line num="61" type="method" name="findMostSimilarWords" crap="4" count="18"/>
-        <line num="63" type="stmt" count="18"/>
-        <line num="64" type="stmt" count="18"/>
-        <line num="66" type="stmt" count="18"/>
-        <line num="68" type="stmt" count="18"/>
+        <line num="51" type="stmt" count="9"/>
+        <line num="61" type="method" name="findMostSimilarWords" crap="4" count="19"/>
+        <line num="63" type="stmt" count="19"/>
+        <line num="64" type="stmt" count="19"/>
+        <line num="66" type="stmt" count="19"/>
+        <line num="68" type="stmt" count="19"/>
         <line num="70" type="stmt" count="12"/>
         <line num="71" type="stmt" count="12"/>
         <line num="72" type="stmt" count="12"/>
         <line num="73" type="stmt" count="12"/>
         <line num="74" type="stmt" count="12"/>
         <line num="75" type="stmt" count="12"/>
-        <line num="80" type="stmt" count="18"/>
-        <line num="89" type="method" name="findFinalSimilirityAndLevenshtein" crap="4" count="8"/>
-        <line num="91" type="stmt" count="8"/>
+        <line num="80" type="stmt" count="19"/>
+        <line num="89" type="method" name="findFinalSimilirityAndLevenshtein" crap="4" count="9"/>
+        <line num="91" type="stmt" count="9"/>
         <line num="92" type="stmt" count="2"/>
-        <line num="95" type="stmt" count="8"/>
+        <line num="95" type="stmt" count="9"/>
         <line num="97" type="stmt" count="2"/>
         <line num="98" type="stmt" count="2"/>
-        <line num="101" type="stmt" count="8"/>
+        <line num="101" type="stmt" count="9"/>
         <metrics loc="102" ncloc="76" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="32" coveredelements="32"/>
       </file>
       <file name="/var/www/geo_git/app/traits/TranslitTrait.php">
         <class name="TranslitTrait" namespace="GeoFixer\traits" fullPackage="GeoFixer" package="GeoFixer">
           <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
         </class>
-        <line num="40" type="method" name="wordTranslit" crap="1" count="19"/>
-        <line num="41" type="stmt" count="19"/>
-        <line num="42" type="stmt" count="19"/>
-        <line num="43" type="stmt" count="19"/>
-        <line num="45" type="stmt" count="19"/>
-        <line num="55" type="method" name="arrayTranslit" crap="2" count="18"/>
-        <line num="56" type="stmt" count="18"/>
-        <line num="58" type="stmt" count="18"/>
-        <line num="59" type="stmt" count="18"/>
-        <line num="62" type="stmt" count="18"/>
-        <line num="71" type="method" name="removeSymbols" crap="1" count="20"/>
-        <line num="73" type="stmt" count="20"/>
-        <line num="82" type="method" name="removeSpecifications" crap="1" count="20"/>
-        <line num="84" type="stmt" count="20"/>
-        <line num="86" type="stmt" count="20"/>
+        <line num="40" type="method" name="wordTranslit" crap="1" count="20"/>
+        <line num="41" type="stmt" count="20"/>
+        <line num="42" type="stmt" count="20"/>
+        <line num="43" type="stmt" count="20"/>
+        <line num="45" type="stmt" count="20"/>
+        <line num="55" type="method" name="arrayTranslit" crap="2" count="19"/>
+        <line num="56" type="stmt" count="19"/>
+        <line num="58" type="stmt" count="19"/>
+        <line num="59" type="stmt" count="19"/>
+        <line num="62" type="stmt" count="19"/>
+        <line num="71" type="method" name="removeSymbols" crap="1" count="21"/>
+        <line num="73" type="stmt" count="21"/>
+        <line num="82" type="method" name="removeSpecifications" crap="1" count="21"/>
+        <line num="84" type="stmt" count="21"/>
+        <line num="86" type="stmt" count="21"/>
         <metrics loc="87" ncloc="51" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="15" coveredelements="15"/>
       </file>
     </package>
-    <metrics files="10" loc="1044" ncloc="673" classes="10" methods="47" coveredmethods="43" conditionals="0" coveredconditionals="0" statements="240" coveredstatements="220" elements="287" coveredelements="263"/>
+    <metrics files="10" loc="1093" ncloc="704" classes="10" methods="49" coveredmethods="45" conditionals="0" coveredconditionals="0" statements="255" coveredstatements="249" elements="304" coveredelements="294"/>
   </project>
 </coverage>
