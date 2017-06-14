@@ -63,6 +63,20 @@ class AbstractDatabaseQuery
     }
 
     /**
+     * Код КЛАДР равен
+     *
+     * @param $code
+     *
+     * @return $this
+     */
+    public function kladrCode($code)
+    {
+        $this->db = $this->db->andWhere(['code' => $code]);
+
+        return $this;
+    }
+
+    /**
      * ID родителя равен
      *
      * @param $id
