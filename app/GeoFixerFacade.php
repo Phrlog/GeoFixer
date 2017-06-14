@@ -102,6 +102,27 @@ class GeoFixerFacade
     }
 
     /**
+     * Поиск кода региона в базе КЛАДР
+     * Логирование ошибок
+     *
+     * @param $region
+     * @param bool $first_letters
+     * @param bool $strict_search
+     *
+     * @return string|false
+     */
+    public function findKladrRegion($region, $first_letters = false, $strict_search = false)
+    {
+        $result = $this->findFiasRegion($region, $first_letters, $strict_search);
+
+        if ($result != false) {
+            return str_pad($result, 13, '0');
+        }
+
+        return $result;
+    }
+
+    /**
      * Поиск ID городов, или ID городов и поселений по коду региона в базе ФИАС
      * Логирование ошибок
      *
@@ -119,6 +140,36 @@ class GeoFixerFacade
         $this->geo->isFullSettlements($full_settlements);
 
         $result =  $this->geo->findFiasSettlements($city, $region_code);
+
+        if ($result == false) {
+            $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
+            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Поиск ID городов, или ID городов и поселений по коду региона в базе КЛАДР
+     * Логирование ошибок
+     *
+     * @param $city
+     * @param $region_code
+     * @param bool $first_letters
+     * @param bool $strict_search
+     *
+     * @return string|false
+     */
+    public function findKladrSettlement($city, $region_code, $first_letters = false, $strict_search = false, $full_settlements = false)
+    {
+        $this->geo->isStrict($strict_search);
+        $this->geo->isFirstLetters($first_letters);
+        $this->geo->isFullSettlements($full_settlements);
+
+        $region_code = substr($region_code, 0, 2);
+
+        $result =  $this->geo->findKladrSettlements($city, $region_code);
 
         if ($result == false) {
             $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
