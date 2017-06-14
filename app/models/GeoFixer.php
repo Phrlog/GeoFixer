@@ -177,13 +177,20 @@ class GeoFixer
 
     /**
      * @param $street
-     * @param $city_id
+     * @param $city_code
      *
      * @return bool|mixed
      */
-    public function findKladrStreets($street, $city_id)
+    public function findKladrStreets($street, $city_code)
     {
         $streets = new StreetsDatabaseQuery();
+        $city = new SettlementsDatabaseQuery();
+        $city_id = $city->getSettlements()->addressLevel(true)->kladrCode($city_code)->findOne();
+        if ($city_id) {
+            $city_id = $city_id['address_id'];
+        } else {
+            return false;
+        }
         $streets = $streets->getStreets()->parentId($city_id)->addressLevel();
 
         if (is_integer($this->first_letters)) {
@@ -205,7 +212,7 @@ class GeoFixer
         if (!$result) {
             return false;
         }
-        if (is_null($streets_with_id[$result]['code'])) {
+        if (is_null($streets_with_id[$result])) {
             return false;
         }
 
