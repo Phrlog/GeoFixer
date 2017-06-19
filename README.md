@@ -1,6 +1,7 @@
 # Geofixer
 [![Latest Stable Version](https://poser.pugx.org/phrlog/geofixer/v/stable)](https://packagist.org/packages/phrlog/geofixer)
 [![Build Status](https://travis-ci.org/Phrlog/GeoFixer.svg?branch=master)](https://travis-ci.org/Phrlog/GeoFixer)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Phrlog/GeoFixer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Phrlog/GeoFixer/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Phrlog/GeoFixer/badge.svg)](https://coveralls.io/github/Phrlog/GeoFixer)
 [![License](https://poser.pugx.org/phrlog/geofixer/license)](https://packagist.org/packages/phrlog/geofixer)
 

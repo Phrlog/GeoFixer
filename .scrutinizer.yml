@@ -109,3 +109,6 @@ coding_style:
                 general: undefined
             constants:
                 true_false_null: undefined
+
+tools:
+    external_code_coverage: true
