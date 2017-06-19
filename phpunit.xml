@@ -16,5 +16,6 @@
 
     <logging>
         <log type="coverage-clover" target="tests/logs/clover.xml"/>
+        <log type="coverage-clover" target="tests/logs/coverage.clover"/>
     </logging>
 </phpunit>
