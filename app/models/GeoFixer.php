@@ -109,6 +109,43 @@ class GeoFixer
     }
 
     /**
+     * @param $city
+     * @param $region_code
+     *
+     * @return bool|mixed
+     */
+    public function findKladrSettlements($city, $region_code)
+    {
+        $settlements = new SettlementsDatabaseQuery();
+        $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel();
+
+        if (is_integer($this->first_letters)) {
+            $settlements = $settlements->firstLetters(substr($city, 0, $this->first_letters));
+        }
+
+        $settlements = $settlements->findAll();
+
+        $titles = [];
+        $settlements_with_id = [];
+
+        foreach ($settlements as $v) {
+            $settlements_with_id[$v['title']] = $v['code'];
+            $titles[] = $v['title'];
+        }
+
+        $result = $this->findSimilarWord($city, $titles);
+
+        if (!$result) {
+            return false;
+        }
+        if (is_null($settlements_with_id[$result])) {
+            return false;
+        }
+
+        return $settlements_with_id[$result];
+    }
+
+    /**
      * @param $street
      * @param $city_id
      *
@@ -136,6 +173,50 @@ class GeoFixer
         $result = $this->findSimilarWord($street, $titles);
 
         return $result ? $streets_with_id[$result] : false;
+    }
+
+    /**
+     * @param $street
+     * @param $city_code
+     *
+     * @return bool|mixed
+     */
+    public function findKladrStreets($street, $city_code)
+    {
+        $streets = new StreetsDatabaseQuery();
+        $city = new SettlementsDatabaseQuery();
+        $city_id = $city->getSettlements()->addressLevel(true)->kladrCode($city_code)->findOne();
+        if ($city_id) {
+            $city_id = $city_id['address_id'];
+        } else {
+            return false;
+        }
+        $streets = $streets->getStreets()->parentId($city_id)->addressLevel();
+
+        if (is_integer($this->first_letters)) {
+            $streets = $streets->firstLetters(substr($street, 0, $this->first_letters));
+        }
+
+        $streets = $streets->findAll();
+
+        $titles = [];
+        $streets_with_id = [];
+
+        foreach ($streets as $v) {
+            $streets_with_id[$v['title']] = $v['code'];
+            $titles[] = $v['title'];
+        }
+
+        $result = $this->findSimilarWord($street, $titles);
+
+        if (!$result) {
+            return false;
+        }
+        if (is_null($streets_with_id[$result])) {
+            return false;
+        }
+
+        return $streets_with_id[$result];
     }
 
     /**
