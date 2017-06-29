@@ -38,6 +38,7 @@ trait TranslitTrait {
      * @return string
      */
     public function wordTranslit($word) {
+        mb_internal_encoding("UTF-8");
         $word = $this->removeSpecifications($word);
         $word = mb_strtolower($word);
         $word = $this->removeSymbols($word);
