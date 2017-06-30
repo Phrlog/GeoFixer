@@ -22,4 +22,4 @@ script:
 after_script:
     - php vendor/bin/coveralls -v
     - if [ "$TRAVIS_PHP_VERSION" != "7.0" ] && [ "$TRAVIS_PHP_VERSION" != "7.1" ]; then wget https://scrutinizer-ci.com/ocular.phar
-    - if [ "$TRAVIS_PHP_VERSION" != "7.0" ] && [ "$TRAVIS_PHP_VERSION" != "7.1" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    - if [ "$TRAVIS_PHP_VERSION" != "7.0" ] && [ "$TRAVIS_PHP_VERSION" != "7.1" ]; then php ocular.phar code-coverage:upload --format=php-clover tests/logs/coverage.clover
