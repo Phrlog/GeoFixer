@@ -1,7 +1,7 @@
 <?php
 
 namespace GeoFixer\tests;
-use GeoFixer\traits\TranslitTrait;
+use GeoFixer\helpers\StringHelper;
 
 /**
  * Class TranslitTraitTest
@@ -11,13 +11,18 @@ use GeoFixer\traits\TranslitTrait;
  */
 class TranslitTraitTest extends \PHPUnit_Framework_TestCase
 {
-    use TranslitTrait;
+     public function __construct($name = NULL, array $data = array(), $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+        $this->string_helper = new StringHelper();
+    }
 
     public function testRemoveSymbols()
     {
         $word = 'xxxТе1кст%mk456';
 
-        $result = $this->removeSymbols($word);
+        $result = $this->string_helper->removeSymbols($word);
 
         $this->assertEquals('Текст', $result);
     }
@@ -31,7 +36,7 @@ class TranslitTraitTest extends \PHPUnit_Framework_TestCase
         ];
 
         foreach ($words as $word => $result) {
-            $this->assertEquals($result, $this->removeSpecifications($word));
+            $this->assertEquals($result, $this->string_helper->removeSpecifications($word));
         }
     }
 
@@ -44,7 +49,7 @@ class TranslitTraitTest extends \PHPUnit_Framework_TestCase
         ];
 
         foreach ($words as $word => $result) {
-            $this->assertEquals($result, $this->wordTranslit($word));
+            $this->assertEquals($result, $this->string_helper->wordTranslit($word));
         }
 
     }
