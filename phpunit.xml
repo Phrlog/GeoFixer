@@ -9,7 +9,7 @@
     <filter>
         <whitelist>
             <directory>app/models/</directory>
-            <directory>app/traits/</directory>
+            <directory>app/helpers/</directory>
             <directory>app/GeoFixerFacade.php</directory>
         </whitelist>
     </filter>
