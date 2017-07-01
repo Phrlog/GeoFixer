@@ -6,8 +6,8 @@ use GeoFixer\models\queries\RegionsDatabaseQuery;
 use GeoFixer\models\queries\SettlementsDatabaseQuery;
 use GeoFixer\models\queries\StreetsDatabaseQuery;
 use GeoFixer\models\queries\HousesDatabaseQuery;
-use GeoFixer\traits\TranslitTrait;
-use GeoFixer\traits\LevenshteinAlgorithmTrait;
+use GeoFixer\helpers\StringHelper;
+use GeoFixer\helpers\FuzzySearchHelper;
 
 /**
  * Class GeoFixer
@@ -16,12 +16,21 @@ use GeoFixer\traits\LevenshteinAlgorithmTrait;
  */
 class GeoFixer
 {
-    use TranslitTrait;
-    use LevenshteinAlgorithmTrait;
-
     protected $strict = false;
     protected $first_letters = false;
     protected $full_settlements = false;
+
+    protected $string_helper;
+    protected $fuzzy_helper;
+
+    /**
+    * GeoFixer construct
+    */
+    public function __construct()
+    {
+        $this->string_helper = new StringHelper();
+        $this->fuzzy_helper = new FuzzySearchHelper();
+    }
 
     /**
      * @param $word
@@ -35,16 +44,16 @@ class GeoFixer
             return $word;
         }
 
-        $word = $this->wordTranslit($word);
+        $word = $this->string_helper->wordTranslit($word);
 
-        $translited_words = $this->arrayTranslit($search_array);
+        $translited_words = $this->string_helper->arrayTranslit($search_array);
 
         if ($this->strict == true) {
-            $result = $this->findBestMatch($word, $translited_words);
+            $result = $this->fuzzy_helper->findBestMatch($word, $translited_words);
             return $result;
         }
 
-        $result = key($this->findMostSimilarWords($word, $translited_words));
+        $result = key($this->fuzzy_helper->findMostSimilarWords($word, $translited_words));
 
         return $result ? $result : false;
     }
