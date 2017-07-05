@@ -24,38 +24,12 @@ class GeoFixer
     protected $fuzzy_helper;
 
     /**
-    * GeoFixer construct
-    */
+     * GeoFixer construct
+     */
     public function __construct()
     {
         $this->string_helper = new StringHelper();
         $this->fuzzy_helper = new FuzzySearchHelper();
-    }
-
-    /**
-     * @param $word
-     * @param $search_array
-     *
-     * @return string
-     */
-    public function findSimilarWord($word, $search_array)
-    {
-        if (in_array($word, $search_array)) {
-            return $word;
-        }
-
-        $word = $this->string_helper->wordTranslit($word);
-
-        $translited_words = $this->string_helper->arrayTranslit($search_array);
-
-        if ($this->strict == true) {
-            $result = $this->fuzzy_helper->findBestMatch($word, $translited_words);
-            return $result;
-        }
-
-        $result = key($this->fuzzy_helper->findMostSimilarWords($word, $translited_words));
-
-        return $result ? $result : false;
     }
 
     /**
@@ -85,6 +59,32 @@ class GeoFixer
         $result = $this->findSimilarWord($region, $titles);
 
         return $result ? $regions_with_codes[$result] : false;
+    }
+
+    /**
+     * @param $word
+     * @param $search_array
+     *
+     * @return string
+     */
+    public function findSimilarWord($word, $search_array)
+    {
+        if (in_array($word, $search_array)) {
+            return $word;
+        }
+
+        $word = $this->string_helper->wordTranslit($word);
+
+        $translited_words = $this->string_helper->arrayTranslit($search_array);
+
+        if ($this->strict == true) {
+            $result = $this->fuzzy_helper->findBestMatch($word, $translited_words);
+            return $result;
+        }
+
+        $result = key($this->fuzzy_helper->findMostSimilarWords($word, $translited_words));
+
+        return $result ? $result : false;
     }
 
     /**
@@ -284,3 +284,4 @@ class GeoFixer
         $this->full_settlements = $is_full;
     }
 }
+

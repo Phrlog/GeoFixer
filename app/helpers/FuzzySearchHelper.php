@@ -9,7 +9,6 @@ namespace GeoFixer\helpers;
  */
 class FuzzySearchHelper
 {
-
     public $similarity = 0;
     public $meta_similarity = 0;
     public $min_levenshtein = 1000;
@@ -45,7 +44,15 @@ class FuzzySearchHelper
             }
         }
 
-        return @key($meta_result) ? @key($meta_result) : false;
+        if (isset($meta_result)) {
+            if (!is_null(key($meta_result))) {
+                return key($meta_result);
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -57,16 +64,16 @@ class FuzzySearchHelper
      */
     public function findMostSimilarWords($word, $words_array)
     {
-        $this->min_levenshtein = 1000;
-        $this->similarity = 0;
+        $min_levenshtein = $this->min_levenshtein;
+        $max_similarity = $this->similarity;
 
         $result = [];
 
         foreach ($words_array as $russian => $translit) {
-            if (levenshtein($translit, $word) <= $this->min_levenshtein) {
-                if (similar_text($translit, $word) >= $this->similarity) {
-                    $this->min_levenshtein = levenshtein($translit, $word);
-                    $this->similarity = similar_text($translit, $word);
+            if (levenshtein($translit, $word) <= $min_levenshtein) {
+                if (similar_text($translit, $word) >= $max_similarity) {
+                    $min_levenshtein = levenshtein($translit, $word);
+                    $max_similarity = similar_text($translit, $word);
                     $result = [];
                     $result[$russian] = $translit;
                 }

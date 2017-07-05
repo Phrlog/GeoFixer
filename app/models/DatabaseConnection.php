@@ -44,7 +44,7 @@ class DatabaseConnection
             'driver' => $driver
         ]);
 
-        if (self::$connection == false) {
+        if (self::$connection === false) {
             throw new Exception('Database connection error');
         }
 
