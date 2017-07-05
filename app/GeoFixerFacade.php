@@ -68,7 +68,7 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найдено похожее слово: ' . $word);
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Массива для поиска: ' . implode($search_array, ', ') . PHP_EOL);
         }
 
@@ -115,8 +115,8 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найден регион ' . $region . ' в базе ФИАС');
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
-            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
         }
 
         return $result;
@@ -143,8 +143,8 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
-            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
         }
 
         return $result;
@@ -173,8 +173,8 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
-            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
         }
 
         return $result;
@@ -200,8 +200,8 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найдена улица ' . $street . ' в городе с id ' . $city_id . ' базы ФИАС');
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
-            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
         }
 
         return $result;
@@ -227,8 +227,8 @@ class GeoFixerFacade
 
         if ($result === false) {
             $this->logger->warning('Не найдена улица ' . $street . ' в городе с кодом ' . $city_code . ' базы КЛАДР');
-            $this->logger->warning('Строгий режим: ' . (int)$strict_search);
-            $this->logger->warning('Режим "совпадают первые буквы": ' . (int)$first_letters . PHP_EOL);
+            $this->logger->warning('Строгий режим: ' . (int) $strict_search);
+            $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
         }
 
         return $result;
