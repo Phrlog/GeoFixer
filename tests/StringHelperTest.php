@@ -24,7 +24,7 @@ class TranslitTraitTest extends \PHPUnit_Framework_TestCase
 
         $result = $this->string_helper->removeSymbols($word);
 
-        $this->assertEquals('Текст', $result);
+        $this->assertEquals('xxxТекстmk', $result);
     }
 
     public function testRemoveSpecifications()
