@@ -71,14 +71,14 @@ class StringHelper {
     }
 
     /**
-     * Убираем пробелы и лишние символы, оставляем только кириллицу
+     * Убираем пробелы и лишние символы, оставляем только кириллицу и латиницу
      *
      * @param $word
      * @return mixed
      */
     public function removeSymbols($word)
     {
-        return preg_replace('/[^а-яё]+/iu', '', $word);
+        return preg_replace("/[^,\p{Cyrillic}\p{Latin}]/ui", '', $word);
     }
 
     /**
