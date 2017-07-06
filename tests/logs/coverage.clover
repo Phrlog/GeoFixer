@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1499262267">
-  <project timestamp="1499262267">
+<coverage generated="1499338616">
+  <project timestamp="1499338616">
     <package name="GeoFixer">
       <file name="/var/www/geo_git/app/GeoFixerFacade.php">
         <class name="GeoFixerFacade" namespace="GeoFixer" fullPackage="GeoFixer" package="GeoFixer">
@@ -134,23 +134,23 @@
         <class name="StringHelper" namespace="GeoFixer\helpers" fullPackage="GeoFixer" package="GeoFixer">
           <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
         </class>
-        <line num="40" type="method" name="wordTranslit" crap="1" count="20"/>
-        <line num="41" type="stmt" count="20"/>
-        <line num="42" type="stmt" count="20"/>
-        <line num="43" type="stmt" count="20"/>
-        <line num="44" type="stmt" count="20"/>
-        <line num="46" type="stmt" count="20"/>
-        <line num="56" type="method" name="arrayTranslit" crap="2" count="19"/>
-        <line num="57" type="stmt" count="19"/>
-        <line num="59" type="stmt" count="19"/>
-        <line num="60" type="stmt" count="19"/>
-        <line num="63" type="stmt" count="19"/>
-        <line num="72" type="method" name="removeSymbols" crap="1" count="21"/>
-        <line num="74" type="stmt" count="21"/>
-        <line num="83" type="method" name="removeSpecifications" crap="1" count="21"/>
-        <line num="85" type="stmt" count="21"/>
-        <line num="87" type="stmt" count="21"/>
-        <metrics loc="89" ncloc="53" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
+        <line num="47" type="method" name="wordTranslit" crap="1" count="20"/>
+        <line num="48" type="stmt" count="20"/>
+        <line num="49" type="stmt" count="20"/>
+        <line num="50" type="stmt" count="20"/>
+        <line num="51" type="stmt" count="20"/>
+        <line num="53" type="stmt" count="20"/>
+        <line num="63" type="method" name="arrayTranslit" crap="2" count="19"/>
+        <line num="64" type="stmt" count="19"/>
+        <line num="66" type="stmt" count="19"/>
+        <line num="67" type="stmt" count="19"/>
+        <line num="70" type="stmt" count="19"/>
+        <line num="79" type="method" name="removeSymbols" crap="1" count="21"/>
+        <line num="81" type="stmt" count="21"/>
+        <line num="90" type="method" name="removeSpecifications" crap="1" count="21"/>
+        <line num="92" type="stmt" count="21"/>
+        <line num="94" type="stmt" count="21"/>
+        <metrics loc="96" ncloc="60" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="16" coveredelements="16"/>
       </file>
     </package>
     <package name="GeoFixer\models">
@@ -387,6 +387,6 @@
         <metrics loc="44" ncloc="26" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
       </file>
     </package>
-    <metrics files="10" loc="1115" ncloc="723" classes="10" methods="50" coveredmethods="45" conditionals="0" coveredconditionals="0" statements="263" coveredstatements="256" elements="313" coveredelements="301"/>
+    <metrics files="10" loc="1122" ncloc="730" classes="10" methods="50" coveredmethods="45" conditionals="0" coveredconditionals="0" statements="263" coveredstatements="256" elements="313" coveredelements="301"/>
   </project>
 </coverage>
