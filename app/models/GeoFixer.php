@@ -70,7 +70,7 @@ class GeoFixer
      * @param $word
      * @param $search_array
      *
-     * @return string
+     * @return string|false|null
      */
     public function findSimilarWord($word, $search_array)
     {
@@ -82,14 +82,11 @@ class GeoFixer
 
         $translited_words = $this->string_helper->arrayTranslit($search_array);
 
-        if ($this->strict == true) {
-            $result = $this->fuzzy_helper->findBestMatch($word, $translited_words);
-            return $result;
-        }
+        $result = $this->strict === true ?
+            $this->fuzzy_helper->findBestMatch($word, $translited_words) :
+            key($this->fuzzy_helper->findMostSimilarWords($word, $translited_words));
 
-        $result = key($this->fuzzy_helper->findMostSimilarWords($word, $translited_words));
-
-        return $result ? $result : false;
+        return $result;
     }
 
     /**
@@ -190,11 +187,12 @@ class GeoFixer
         $streets = new StreetsDatabaseQuery();
         $city = new SettlementsDatabaseQuery();
         $city_id = $city->getSettlements()->addressLevel(true)->kladrCode($city_code)->findOne();
-        if ($city_id) {
-            $city_id = $city_id['address_id'];
-        } else {
+
+        if (!$city_id) {
             return false;
         }
+
+        $city_id = $city_id['address_id'];
         $streets = $streets->getStreets()->parentId($city_id)->addressLevel();
 
         if (is_integer($this->first_letters)) {
@@ -228,7 +226,7 @@ class GeoFixer
         $house_id = new HousesDatabaseQuery();
         $house_id = $house_id->getHouses()->addressId($street_id)->houseNumber($house);
 
-        if ($building != false) {
+        if ($building !== false) {
             $house_id = $house_id->building($building);
         }
 
@@ -254,7 +252,7 @@ class GeoFixer
      * (теоретически, снизит кол-во слов, которые придется обрабатывать алгоритмом и тем самым увеличит скорость работы, но может не найти слово, если первые буквы не совпадают
      * из-за опечатки или префиксов)
      *
-     * @param bool $count
+     * @param int|bool $count
      */
     public function isFirstLetters($count = false)
     {

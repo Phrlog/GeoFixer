@@ -34,11 +34,7 @@ class FuzzySearchHelper
         array_walk($most_similar, array($this, 'findFinalSimilirityAndLevenshtein'), $word);
         array_walk($most_similar, array($this, 'strictSimilarityCallback'), $word);
 
-        if (is_null(key($this->result_array))) {
-            return false;
-        }
-
-        return key($this->result_array);
+        return is_null(key($this->result_array)) ? false : key($this->result_array);
     }
 
     /**
