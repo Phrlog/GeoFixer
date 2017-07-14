@@ -2,6 +2,7 @@
 
 namespace GeoFixer\models;
 
+use GeoFixer\models\queries\AbstractDatabaseQuery;
 use GeoFixer\models\queries\RegionsDatabaseQuery;
 use GeoFixer\models\queries\SettlementsDatabaseQuery;
 use GeoFixer\models\queries\StreetsDatabaseQuery;
@@ -20,6 +21,11 @@ class GeoFixer
     protected $first_letters = false;
     protected $full_settlements = false;
 
+    protected $geo_with_ids = [];
+    protected $geo_titles = [];
+    protected $title_name;
+    protected $code_name;
+
     protected $string_helper;
     protected $fuzzy_helper;
 
@@ -30,6 +36,9 @@ class GeoFixer
     {
         $this->string_helper = new StringHelper();
         $this->fuzzy_helper = new FuzzySearchHelper();
+
+        $this->title_name = AbstractDatabaseQuery::TITLE;
+        $this->code_name = AbstractDatabaseQuery::FIAS_CODE;
     }
 
     /**
@@ -39,6 +48,8 @@ class GeoFixer
      */
     public function findFiasRegion($region)
     {
+        $this->code_name = AbstractDatabaseQuery::KLADR_CODE;
+
         $regions = new RegionsDatabaseQuery();
         $regions = $regions->getRegions();
 
@@ -48,17 +59,11 @@ class GeoFixer
 
         $regions = $regions->findAll();
 
-        $titles = [];
-        $regions_with_codes = [];
+        array_map(array($this, 'geoDataHandler'), $regions);
 
-        foreach ($regions as $v) {
-            $regions_with_codes[$v['title']] = $v['code'];
-            $titles[] = $v['title'];
-        }
+        $result = $this->findSimilarWord($region, $this->geo_titles);
 
-        $result = $this->findSimilarWord($region, $titles);
-
-        return $result ? $regions_with_codes[$result] : false;
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 
     /**
@@ -95,6 +100,8 @@ class GeoFixer
      */
     public function findFiasSettlements($city, $region_code)
     {
+        $this->code_name = AbstractDatabaseQuery::FIAS_CODE;
+
         $settlements = new SettlementsDatabaseQuery();
         $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel();
 
@@ -104,17 +111,11 @@ class GeoFixer
 
         $settlements = $settlements->findAll();
 
-        $titles = [];
-        $settlements_with_id = [];
+        array_map(array($this, 'geoDataHandler'), $settlements);
 
-        foreach ($settlements as $v) {
-            $settlements_with_id[$v['title']] = $v['address_id'];
-            $titles[] = $v['title'];
-        }
+        $result = $this->findSimilarWord($city, $this->geo_titles);
 
-        $result = $this->findSimilarWord($city, $titles);
-
-        return $result ? $settlements_with_id[$result] : false;
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 
     /**
@@ -125,6 +126,8 @@ class GeoFixer
      */
     public function findKladrSettlements($city, $region_code)
     {
+        $this->code_name = AbstractDatabaseQuery::KLADR_CODE;
+
         $settlements = new SettlementsDatabaseQuery();
         $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel();
 
@@ -134,24 +137,18 @@ class GeoFixer
 
         $settlements = $settlements->findAll();
 
-        $titles = [];
-        $settlements_with_id = [];
+        array_map(array($this, 'geoDataHandler'), $settlements);
 
-        foreach ($settlements as $v) {
-            $settlements_with_id[$v['title']] = $v['code'];
-            $titles[] = $v['title'];
-        }
-
-        $result = $this->findSimilarWord($city, $titles);
+        $result = $this->findSimilarWord($city, $this->geo_titles);
 
         if (!$result) {
             return false;
         }
-        if (is_null($settlements_with_id[$result])) {
+        if (is_null($this->geo_with_ids[$result])) {
             return false;
         }
 
-        return $settlements_with_id[$result];
+        return $this->geo_with_ids[$result];
     }
 
     /**
@@ -162,6 +159,8 @@ class GeoFixer
      */
     public function findFiasStreets($street, $city_id)
     {
+        $this->code_name = AbstractDatabaseQuery::FIAS_CODE;
+
         $streets = new StreetsDatabaseQuery();
         $streets = $streets->getStreets()->parentId($city_id)->addressLevel();
 
@@ -171,17 +170,11 @@ class GeoFixer
 
         $streets = $streets->findAll();
 
-        $titles = [];
-        $streets_with_id = [];
+        array_map(array($this, 'geoDataHandler'), $streets);
 
-        foreach ($streets as $v) {
-            $streets_with_id[$v['title']] = $v['address_id'];
-            $titles[] = $v['title'];
-        }
+        $result = $this->findSimilarWord($street, $this->geo_titles);
 
-        $result = $this->findSimilarWord($street, $titles);
-
-        return $result ? $streets_with_id[$result] : false;
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 
     /**
@@ -192,6 +185,8 @@ class GeoFixer
      */
     public function findKladrStreets($street, $city_code)
     {
+        $this->code_name = AbstractDatabaseQuery::KLADR_CODE;
+
         $streets = new StreetsDatabaseQuery();
         $city = new SettlementsDatabaseQuery();
         $city_id = $city->getSettlements()->addressLevel(true)->kladrCode($city_code)->findOne();
@@ -208,24 +203,18 @@ class GeoFixer
 
         $streets = $streets->findAll();
 
-        $titles = [];
-        $streets_with_id = [];
+        array_map(array($this, 'geoDataHandler'), $streets);
 
-        foreach ($streets as $v) {
-            $streets_with_id[$v['title']] = $v['code'];
-            $titles[] = $v['title'];
-        }
-
-        $result = $this->findSimilarWord($street, $titles);
+        $result = $this->findSimilarWord($street, $this->geo_titles);
 
         if (!$result) {
             return false;
         }
-        if (is_null($streets_with_id[$result])) {
+        if (is_null($this->geo_with_ids[$result])) {
             return false;
         }
 
-        return $streets_with_id[$result];
+        return $this->geo_with_ids[$result];
     }
 
     /**
@@ -282,6 +271,15 @@ class GeoFixer
     public function isFullSettlements($is_full = false)
     {
         $this->full_settlements = $is_full;
+    }
+
+    /**
+     * @param $geo_array
+     */
+    protected function geoDataHandler($geo_array)
+    {
+        $this->geo_with_ids[$geo_array[$this->title_name]] = $geo_array[$this->code_name];
+        $this->geo_titles[] = $geo_array[$this->title_name];
     }
 }
 
