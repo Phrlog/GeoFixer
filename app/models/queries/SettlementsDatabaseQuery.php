@@ -24,7 +24,7 @@ class SettlementsDatabaseQuery extends AbstractDatabaseQuery
      */
     public function getSettlements()
     {
-        $this->db = $this->db->select(['address_id', 'title', 'code'])->from('fias_address_object');
+        $this->db = $this->db->select([self::FIAS_CODE, self::TITLE, self::KLADR_CODE])->from('fias_address_object');
 
         return $this;
     }

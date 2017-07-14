@@ -38,7 +38,7 @@ class HousesDatabaseQuery extends AbstractDatabaseQuery
      */
     public function addressId($street_id)
     {
-        $this->db = $this->db->andWhere(['address_id' => $street_id]);
+        $this->db = $this->db->andWhere([self::FIAS_CODE  => $street_id]);
 
         return $this;
     }

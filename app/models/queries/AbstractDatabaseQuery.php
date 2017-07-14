@@ -19,6 +19,11 @@ class AbstractDatabaseQuery
     const SETTLEMENT = 6;
     const STREET = 7;
 
+    const KLADR_CODE = 'code';
+    const FIAS_CODE = 'address_id';
+    const TITLE = 'title';
+
+
     /**
      * @var Connection::newQuery()
      */
@@ -43,7 +48,7 @@ class AbstractDatabaseQuery
      */
     public function firstLetters($letters)
     {
-        $this->db = $this->db->andWhere(['title LIKE' => $letters . '%']);
+        $this->db = $this->db->andWhere([self::TITLE . ' LIKE' => $letters . '%']);
 
         return $this;
     }
@@ -71,7 +76,7 @@ class AbstractDatabaseQuery
      */
     public function kladrCode($code)
     {
-        $this->db = $this->db->andWhere(['code' => $code]);
+        $this->db = $this->db->andWhere([self::KLADR_CODE => $code]);
 
         return $this;
     }
