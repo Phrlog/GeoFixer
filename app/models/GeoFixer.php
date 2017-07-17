@@ -138,14 +138,7 @@ class GeoFixer
 
         $result = $this->findSimilarWord($city, $this->geo_titles);
 
-        if (!$result) {
-            return false;
-        }
-        if (is_null($this->geo_with_ids[$result])) {
-            return false;
-        }
-
-        return $this->geo_with_ids[$result];
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 
     /**
@@ -188,7 +181,7 @@ class GeoFixer
         $city = new SettlementsDatabaseQuery();
         $city_id = $city->getSettlements()->addressLevel(true)->kladrCode($city_code)->findOne();
 
-        if (!$city_id) {
+        if ($city_id === false) {
             return false;
         }
 
@@ -205,14 +198,7 @@ class GeoFixer
 
         $result = $this->findSimilarWord($street, $this->geo_titles);
 
-        if (!$result) {
-            return false;
-        }
-        if (is_null($this->geo_with_ids[$result])) {
-            return false;
-        }
-
-        return $this->geo_with_ids[$result];
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 
     /**
