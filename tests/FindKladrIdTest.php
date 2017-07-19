@@ -95,4 +95,12 @@ class FindKladrIdTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->facade->findKladrStreet($street, $city_code, false, $strict_search = true));
     }
 
+    public function testCityError()
+    {
+        $city_code = '28000000';
+        $street = 'Несуществующая';
+
+        $this->assertFalse($this->facade->findKladrStreet($street, $city_code, false, $strict_search = true));
+    }
+
 }
