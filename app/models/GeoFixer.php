@@ -59,11 +59,7 @@ class GeoFixer
 
         $regions = $regions->findAll();
 
-        array_map(array($this, 'geoDataHandler'), $regions);
-
-        $result = $this->findSimilarWord($region, $this->geo_titles);
-
-        return $result ? $this->geo_with_ids[$result] : false;
+        return $this->getResult($regions, $region);
     }
 
     /**
@@ -108,11 +104,7 @@ class GeoFixer
 
         $settlements = $settlements->findAll();
 
-        array_map(array($this, 'geoDataHandler'), $settlements);
-
-        $result = $this->findSimilarWord($city, $this->geo_titles);
-
-        return $result ? $this->geo_with_ids[$result] : false;
+        return $this->getResult($settlements, $city);
     }
 
     /**
@@ -134,11 +126,7 @@ class GeoFixer
 
         $settlements = $settlements->findAll();
 
-        array_map(array($this, 'geoDataHandler'), $settlements);
-
-        $result = $this->findSimilarWord($city, $this->geo_titles);
-
-        return $result ? $this->geo_with_ids[$result] : false;
+        return $this->getResult($settlements, $city);
     }
 
     /**
@@ -160,11 +148,7 @@ class GeoFixer
 
         $streets = $streets->findAll();
 
-        array_map(array($this, 'geoDataHandler'), $streets);
-
-        $result = $this->findSimilarWord($street, $this->geo_titles);
-
-        return $result ? $this->geo_with_ids[$result] : false;
+        return $this->getResult($streets, $street);
     }
 
     /**
@@ -194,11 +178,7 @@ class GeoFixer
 
         $streets = $streets->findAll();
 
-        array_map(array($this, 'geoDataHandler'), $streets);
-
-        $result = $this->findSimilarWord($street, $this->geo_titles);
-
-        return $result ? $this->geo_with_ids[$result] : false;
+        return $this->getResult($streets, $street);
     }
 
     /**
@@ -264,6 +244,20 @@ class GeoFixer
     {
         $this->geo_with_ids[$geo_array[$this->title_name]] = $geo_array[$this->code_name];
         $this->geo_titles[] = $geo_array[$this->title_name];
+    }
+
+    /**
+     * @param $geo_array
+     * @param $word
+     * @return bool|mixed
+     */
+    protected function getResult($geo_array, $word)
+    {
+        array_map(array($this, 'geoDataHandler'), $geo_array);
+
+        $result = $this->findSimilarWord($word, $this->geo_titles);
+
+        return $result ? $this->geo_with_ids[$result] : false;
     }
 }
 
