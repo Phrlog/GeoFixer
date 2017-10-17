@@ -73,6 +73,7 @@ class GeoFixer
         if (in_array($word, $search_array)) {
             return $word;
         }
+        $this->fuzzy_helper = new FuzzySearchHelper();
 
         $word = $this->string_helper->wordTranslit($word);
 
