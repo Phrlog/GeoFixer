@@ -29,11 +29,16 @@ class GeoFixerFacade
      *
      * GeoFixerFacade constructor.
      * @param bool $fias
+     * @param bool $logger
      * @param array $config
      */
-    public function __construct($fias = false, $config = null)
+    public function __construct($fias = false, $logger = false, $config = null)
     {
-        $this->logger = new KLogger\Logger(dirname(dirname(__FILE__)) . '/logs');
+        if ($logger !== false) {
+            $this->logger = new KLogger\Logger(dirname(dirname(__FILE__)) . '/logs');
+        } else {
+            $this->logger = false;
+        }
 
         if ($fias === true) {
             if ($config == null) {
@@ -66,7 +71,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findSimilarWord($word, $search_array);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найдено похожее слово: ' . $word);
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Массива для поиска: ' . implode($search_array, ', ') . PHP_EOL);
@@ -113,7 +118,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findFiasRegion($region);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найден регион ' . $region . ' в базе ФИАС');
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
@@ -141,7 +146,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findFiasSettlements($city, $region_code);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
@@ -171,7 +176,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findKladrSettlements($city, $region_code);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найден город ' . $city . ' в регионе с кодом ' . $region_code . ' базы ФИАС');
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
@@ -198,7 +203,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findFiasStreets($street, $city_id);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найдена улица ' . $street . ' в городе с id ' . $city_id . ' базы ФИАС');
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
@@ -225,7 +230,7 @@ class GeoFixerFacade
 
         $result = $this->geo->findKladrStreets($street, $city_code);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             $this->logger->warning('Не найдена улица ' . $street . ' в городе с кодом ' . $city_code . ' базы КЛАДР');
             $this->logger->warning('Строгий режим: ' . (int) $strict_search);
             $this->logger->warning('Режим "совпадают первые буквы": ' . (int) $first_letters . PHP_EOL);
@@ -248,7 +253,7 @@ class GeoFixerFacade
     {
         $result = $this->geo->findFiasHouses($house, $street_id, $building);
 
-        if ($result === false) {
+        if ($result === false && $this->logger) {
             if ($building) {
                 $this->logger->warning('Не найден дом ' . $house . ', корпус ' . $building . ' на улице с id ' . $street_id . ' базы ФИАС' . PHP_EOL);
             } else {
