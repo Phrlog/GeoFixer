@@ -16,6 +16,17 @@ $geo = new \GeoFixer\GeoFixerFacade();
 <?php
 $geo = new \GeoFixer\GeoFixerFacade($fias = true);
 ```
+Вы можете включить логгирование и задать собственный конфиг для базы данных:
+ ```php
+ <?php
+ $config = [
+             'host' => 'localhost',
+             'database'  => 'fias',
+             'username'  => 'root',
+             'password'  => 'password'
+         ];
+ $geo = new \GeoFixer\GeoFixerFacade($fias = true, $logs = true, $config);
+ ```
 
 ## Поиск по имеющимся массивам
 

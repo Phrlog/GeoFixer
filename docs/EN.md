@@ -15,6 +15,18 @@ If you want to use the FIAS database, I recommend using [this](https://github.co
 $geo = new \GeoFixer\GeoFixerFacade($fias = true);
 ```
 
+You can enable logs and set you own database config by:
+ ```php
+ <?php
+ $config = [
+             'host' => 'localhost',
+             'database'  => 'fias',
+             'username'  => 'root',
+             'password'  => 'password'
+         ];
+ $geo = new \GeoFixer\GeoFixerFacade($fias = true, $logs = true, $config);
+ ```
+
 ## Search by available arrays
 
 ```php
