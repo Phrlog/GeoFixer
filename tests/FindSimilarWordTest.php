@@ -31,6 +31,13 @@ class FindSimilarWordTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($this->facade);
     }
 
+    public function testFacadeCreationWithLoggerEnable()
+    {
+        $this->facade = new GeoFixerFacade(false, true);
+
+        $this->assertNotEmpty($this->facade);
+    }
+
     public function testFindSimilarRegion()
     {
         $regions = [

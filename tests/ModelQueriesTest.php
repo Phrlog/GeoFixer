@@ -32,7 +32,7 @@ class ModelQueriesTest extends \PHPUnit_Framework_TestCase
             'username'  => 'root',
             'password'  => 'wrong_password'
         ];
-        $this->facade = new GeoFixerFacade($fias = true, $config);
+        $this->facade = new GeoFixerFacade($fias = true, false, $config);
     }
 
     public function testFiasFacadeCreation()
