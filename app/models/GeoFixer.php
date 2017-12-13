@@ -97,7 +97,7 @@ class GeoFixer
         $this->code_name = AbstractDatabaseQuery::FIAS_CODE;
 
         $settlements = new SettlementsDatabaseQuery();
-        $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel();
+        $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel($this->full_settlements);
 
         if (is_integer($this->first_letters)) {
             $settlements = $settlements->firstLetters(substr($city, 0, $this->first_letters));
@@ -119,7 +119,7 @@ class GeoFixer
         $this->code_name = AbstractDatabaseQuery::KLADR_CODE;
 
         $settlements = new SettlementsDatabaseQuery();
-        $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel();
+        $settlements = $settlements->getSettlements()->regionCode($region_code)->addressLevel($this->full_settlements);
 
         if (is_integer($this->first_letters)) {
             $settlements = $settlements->firstLetters(substr($city, 0, $this->first_letters));
