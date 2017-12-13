@@ -92,6 +92,8 @@ class GeoFixerFacade
      */
     public function findKladrRegion($region, $first_letters = false, $strict_search = false)
     {
+        $this->geo = new GeoFixer();
+
         $result = $this->findFiasRegion($region, $first_letters, $strict_search);
 
         if ($result !== false) {
@@ -113,6 +115,8 @@ class GeoFixerFacade
      */
     public function findFiasRegion($region, $first_letters = false, $strict_search = false)
     {
+        $this->geo = new GeoFixer();
+
         $this->geo->isStrict($strict_search);
         $this->geo->isFirstLetters($first_letters);
 
@@ -140,6 +144,8 @@ class GeoFixerFacade
      */
     public function findFiasSettlement($city, $region_code, $first_letters = false, $strict_search = false, $full_settlements = false)
     {
+        $this->geo = new GeoFixer();
+
         $this->geo->isStrict($strict_search);
         $this->geo->isFirstLetters($first_letters);
         $this->geo->isFullSettlements($full_settlements);
@@ -168,6 +174,8 @@ class GeoFixerFacade
      */
     public function findKladrSettlement($city, $region_code, $first_letters = false, $strict_search = false, $full_settlements = false)
     {
+        $this->geo = new GeoFixer();
+
         $this->geo->isStrict($strict_search);
         $this->geo->isFirstLetters($first_letters);
         $this->geo->isFullSettlements($full_settlements);
@@ -198,6 +206,8 @@ class GeoFixerFacade
      */
     public function findFiasStreet($street, $city_id, $first_letters = false, $strict_search = false)
     {
+        $this->geo = new GeoFixer();
+
         $this->geo->isStrict($strict_search);
         $this->geo->isFirstLetters($first_letters);
 
@@ -225,6 +235,8 @@ class GeoFixerFacade
      */
     public function findKladrStreet($street, $city_code, $first_letters = false, $strict_search = false)
     {
+        $this->geo = new GeoFixer();
+
         $this->geo->isStrict($strict_search);
         $this->geo->isFirstLetters($first_letters);
 
@@ -251,6 +263,8 @@ class GeoFixerFacade
      */
     public function findFiasHouse($house, $street_id, $building = false)
     {
+        $this->geo = new GeoFixer();
+
         $result = $this->geo->findFiasHouses($house, $street_id, $building);
 
         if ($result === false && $this->logger) {
