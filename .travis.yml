@@ -10,7 +10,7 @@ services:
 
 before_script:
     - travis_retry composer self-update
-    - travis_retry composer require phpunit/phpunit:4.8.* satooshi/php-coveralls:dev-master
+    - travis_retry composer require phpunit/phpunit:4.8.*
     - travis_retry composer install --no-interaction --prefer-source --dev
     - mysql -e 'CREATE DATABASE fias;'
     - mysql -uroot fias < tests/fias.sql
@@ -20,6 +20,5 @@ script:
     - vendor/bin/phpunit
 
 after_script:
-    - php vendor/bin/coveralls -v
     - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover tests/logs/coverage.clover
