@@ -1,7 +1,7 @@
 ## Настройка
 Для использования `FIAS` Измените конфиг `app/config/database.php` под свою БД
 
-Чтобы указать префиксы для удаления, вы можете изменить конфиг `app/config/specifications.php`
+Чтобы указать префиксы для удаления, вы можете создать файл `app/config/specifications_local.php`
 
 ## Инициализация приложения
 `composer install`
